@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_content_blocks",
+  "info": {
+    "displayName": "Content Block",
+    "description": "Reusable content block with optional image"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": ["left", "right", "top", "bottom"],
+      "default": "right"
+    }
+  }
+}

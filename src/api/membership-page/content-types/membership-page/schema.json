@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "membership_pages",
+  "info": {
+    "singularName": "membership-page",
+    "pluralName": "membership-pages",
+    "displayName": "Membership Page",
+    "description": "Membership page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.hero"
+    },
+    "introText": {
+      "type": "richtext"
+    },
+    "processSteps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.process-step"
+    },
+    "requirements": {
+      "type": "richtext"
+    },
+    "callToAction": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_chair_messages",
+  "info": {
+    "displayName": "Chair Message",
+    "description": "Chairperson message component"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "message": {
+      "type": "richtext",
+      "required": true
+    },
+    "fullMessage": {
+      "type": "richtext"
+    }
+  }
+}
