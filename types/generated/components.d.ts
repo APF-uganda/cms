@@ -1,5 +1,30 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface RepeatableConnect extends Struct.ComponentSchema {
+  collectionName: 'components_repeatable_connects';
+  info: {
+    displayName: 'connect';
+  };
+  attributes: {
+    content: Schema.Attribute.Blocks;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imageposition: Schema.Attribute.Enumeration<
+      ['Ex:', 'right', 'left', 'top']
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface RepeatablePartnerlogo extends Struct.ComponentSchema {
+  collectionName: 'components_repeatable_partnerlogos';
+  info: {
+    displayName: 'Partnerlogo';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface RepeatableTags extends Struct.ComponentSchema {
   collectionName: 'components_repeatable_tags';
   info: {
@@ -169,6 +194,8 @@ export interface TagsTags extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'repeatable.connect': RepeatableConnect;
+      'repeatable.partnerlogo': RepeatablePartnerlogo;
       'repeatable.tags': RepeatableTags;
       'seo.seo': SeoSeo;
       'shared.chair-message': SharedChairMessage;

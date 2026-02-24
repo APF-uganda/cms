@@ -457,6 +457,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     objectives: Schema.Attribute.Component<'shared.objective', true>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    title: Schema.Attribute.Component<'repeatable.connect', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -623,7 +624,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     chairMessage: Schema.Attribute.Component<'shared.chair-message', false>;
     connectingProfessionals: Schema.Attribute.Component<
       'shared.content-block',
-      false
+      true
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -635,6 +636,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'api::homepage.homepage'
     > &
       Schema.Attribute.Private;
+    partnerlogo: Schema.Attribute.Component<'repeatable.partnerlogo', true>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     stats: Schema.Attribute.Component<'shared.stat', true>;

@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_repeatable_connects",
+  "info": {
+    "displayName": "connect"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "imageposition": {
+      "type": "enumeration",
+      "enum": [
+        "Ex:",
+        "right",
+        "left",
+        "top"
+      ]
+    }
+  },
+  "config": {}
+}

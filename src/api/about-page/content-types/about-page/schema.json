@@ -14,8 +14,8 @@
   "attributes": {
     "hero": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.hero"
+      "component": "shared.hero",
+      "repeatable": false
     },
     "history": {
       "type": "richtext"
@@ -30,13 +30,18 @@
     },
     "objectives": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.objective"
+      "component": "shared.objective",
+      "repeatable": true
     },
     "seo": {
       "type": "component",
-      "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "title": {
+      "type": "component",
+      "component": "repeatable.connect",
+      "repeatable": false
     }
   }
 }

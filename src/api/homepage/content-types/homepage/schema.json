@@ -14,28 +14,33 @@
   "attributes": {
     "hero": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.hero"
+      "component": "shared.hero",
+      "repeatable": false
     },
     "stats": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.stat"
+      "component": "shared.stat",
+      "repeatable": true
     },
     "chairMessage": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.chair-message"
+      "component": "shared.chair-message",
+      "repeatable": false
     },
     "connectingProfessionals": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.content-block"
+      "component": "shared.content-block",
+      "repeatable": true
     },
     "seo": {
       "type": "component",
-      "repeatable": false,
-      "component": "seo.seo"
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "partnerlogo": {
+      "type": "component",
+      "component": "repeatable.partnerlogo",
+      "repeatable": true
     }
   }
 }
