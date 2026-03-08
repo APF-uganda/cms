@@ -53,10 +53,17 @@ jobs:
             git fetch origin "$BRANCH"
             git checkout "$BRANCH"
             git pull origin "$BRANCH"
-            dc up -d --build cms
+            dc build cms
+            dc up -d --no-deps cms
+            sleep 5
             docker inspect -f '{{.State.Running}}' apf_cms | grep -qx "true"
-            curl -sS --fail --retry 40 --retry-delay 3 --retry-connrefused \
-              http://localhost:1337/admin >/dev/null
+            if ! curl -4 -sS --fail --retry 90 --retry-delay 2 --retry-all-errors \
+              http://127.0.0.1:1337/admin >/dev/null; then
+              echo "CMS health check failed."
+              dc ps cms || true
+              dc logs --no-color --since "${START_TS}" --tail=200 cms || true
+              exit 1
+            fi
             echo "CMS health check passed."
             trap - EXIT
             echo "CMS deploy completed successfully."
