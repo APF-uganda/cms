@@ -32,3 +32,16 @@ jobs:
             git checkout "$BRANCH"
             git pull origin "$BRANCH"
             docker compose -f /var/www/apf/docker-compose.yaml up -d --build cms
+            i=1
+            until [ "$i" -gt 20 ]; do
+              if curl -fsS http://localhost:1337/admin >/dev/null; then
+                echo "CMS health check passed."
+                exit 0
+              fi
+              echo "Waiting for CMS... attempt $i/20"
+              sleep 3
+              i=$((i + 1))
+            done
+            echo "CMS health check failed."
+            docker compose -f /var/www/apf/docker-compose.yaml logs --tail=120 cms
+            exit 1
