@@ -457,6 +457,7 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
     objectives: Schema.Attribute.Component<'shared.objective', true>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    timeline: Schema.Attribute.Component<'shared.timeline', true>;
     title: Schema.Attribute.Component<'repeatable.connect', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -545,10 +546,6 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    category: Schema.Attribute.Enumeration<
-      ['"conference"', '"workshop"', '"seminar"', '"Forum"', '"Networking"']
-    >;
-    content: Schema.Attribute.Blocks;
     cpdPoints: Schema.Attribute.Integer;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -558,17 +555,15 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
     isFeatured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isPaid: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
     location: Schema.Attribute.String & Schema.Attribute.Required;
-    PublishAt: Schema.Attribute.DateTime;
+    memberPrice: Schema.Attribute.Integer;
+    nonMemberPrice: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     registrationLink: Schema.Attribute.String;
-    slug: Schema.Attribute.UID<'title'>;
-    state: Schema.Attribute.Enumeration<
-      ['"upcoming"', '"ongoing"', '"completed"', '"cancelled"']
-    >;
     time: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -779,6 +774,7 @@ export interface ApiNewsCategoryNewsCategory
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
