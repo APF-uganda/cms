@@ -28,6 +28,16 @@
       "relation": "oneToMany",
       "target": "api::news-article.news-article",
       "mappedBy": "news"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }

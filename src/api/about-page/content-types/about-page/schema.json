@@ -42,6 +42,11 @@
       "type": "component",
       "component": "repeatable.connect",
       "repeatable": false
+    },
+    "timeline": {
+      "type": "component",
+      "component": "shared.timeline",
+      "repeatable": true
     }
   }
 }

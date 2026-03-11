@@ -15,16 +15,9 @@
       "type": "string",
       "required": true
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
-    },
     "description": {
       "type": "text",
       "required": true
-    },
-    "content": {
-      "type": "blocks"
     },
     "date": {
       "type": "datetime",
@@ -54,31 +47,18 @@
     "cpdPoints": {
       "type": "integer"
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "\"conference\"",
-        "\"workshop\"",
-        "\"seminar\"",
-        "\"Forum\"",
-        "\"Networking\""
-      ]
-    },
     "isFeatured": {
       "type": "boolean",
       "default": false
     },
-    "state": {
-      "type": "enumeration",
-      "enum": [
-        "\"upcoming\"",
-        "\"ongoing\"",
-        "\"completed\"",
-        "\"cancelled\""
-      ]
+    "isPaid": {
+      "type": "boolean"
     },
-    "PublishAt": {
-      "type": "datetime"
+    "memberPrice": {
+      "type": "integer"
+    },
+    "nonMemberPrice": {
+      "type": "integer"
     }
   }
 }

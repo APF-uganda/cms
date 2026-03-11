@@ -183,6 +183,18 @@ export interface SharedStat extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTimeline extends Struct.ComponentSchema {
+  collectionName: 'components_shared_timelines';
+  info: {
+    displayName: 'timeline';
+  };
+  attributes: {
+    Description: Schema.Attribute.Text;
+    eventTitle: Schema.Attribute.String;
+    Year: Schema.Attribute.String;
+  };
+}
+
 export interface TagsTags extends Struct.ComponentSchema {
   collectionName: 'components_tags_tags';
   info: {
@@ -206,6 +218,7 @@ declare module '@strapi/strapi' {
       'shared.process-step': SharedProcessStep;
       'shared.social-link': SharedSocialLink;
       'shared.stat': SharedStat;
+      'shared.timeline': SharedTimeline;
       'tags.tags': TagsTags;
     }
   }
