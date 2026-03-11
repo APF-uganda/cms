@@ -50,11 +50,11 @@ jobs:
             trap on_exit EXIT
             BRANCH="${{ github.ref_name }}"
             cd /var/www/apf/cms
-            git fetch origin "$BRANCH"
-            git checkout "$BRANCH"
-            git pull origin "$BRANCH"
-            dc build cms
-            dc up -d --no-deps cms
+            git fetch --prune origin "$BRANCH"
+            git checkout -B "$BRANCH" "origin/$BRANCH"
+            git reset --hard "origin/$BRANCH"
+            echo "Deploying commit $(git rev-parse --short HEAD) on branch ${BRANCH}"
+            dc up -d --build --no-deps --force-recreate cms
             sleep 5
             docker inspect -f '{{.State.Running}}' apf_cms | grep -qx "true"
             if ! curl -4 -sS --fail --retry 90 --retry-delay 2 --retry-all-errors \
