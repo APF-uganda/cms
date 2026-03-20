@@ -9,6 +9,12 @@ const config: Core.Config.Middlewares = [
   'strapi::query',
   'strapi::body',
   'strapi::session',
+  {
+    name: 'global::upload-fallback',
+    config: {
+      fallbackFile: 'uploads/fallback.jpg',
+    },
+  },
   'strapi::favicon',
   'strapi::public',
 ];
