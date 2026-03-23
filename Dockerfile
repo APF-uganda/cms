@@ -6,7 +6,8 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run build
+ARG NODE_BUILD_OPTIONS="--max-old-space-size=3072"
+RUN NODE_OPTIONS="${NODE_BUILD_OPTIONS}" npm run build
 
 EXPOSE 1337
 
